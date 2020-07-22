@@ -25,6 +25,8 @@ Route::get('/usuarios', 'RegisterController@create')->name('registro');
 
 // Rutas cliente
 
+
+
 Route::get('/', 'ClienteController@index')->name('cliente.index');
 Route::post('/', 'ClienteController@store')->name('cliente.guardar');
 

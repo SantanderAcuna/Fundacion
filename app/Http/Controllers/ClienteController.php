@@ -15,7 +15,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('/');
+        return view('welcome');
     }
 
     /**
@@ -56,7 +56,7 @@ class ClienteController extends Controller
         $afi->eps_id = $request->eps_id;
         $afi->save();
 
-        return redirect('/')->with('status', 'Registro exitoso');
+        return redirect('welcome')->with('status', 'Registro exitoso');
     }
 
     /**
