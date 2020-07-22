@@ -101,12 +101,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
         </nav>
         <!-- /.navbar -->
-
+      
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
+                @auth
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         <img src="admin/dist/img/Admin.png" class="img-circle elevation-2" alt="User Image">
@@ -123,7 +124,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
 
                 <!-- Sidebar Menu -->
-                @auth
+               
+             
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
@@ -165,7 +167,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                         </li>
                     </ul>
-                </nav>
+                </nav>             
+                    
+                @else
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link active bg-danger">
+                                <i class="fas fa-file-alt"></i>
+                                <p>
+                                    Afiliaciones Eps
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('cliente.index')}}" class="nav-link active">
+                                        <i class="far fa-address-card"></i>
+                                        <p>Afiliados</p>
+                                    </a>
+                                </li>
+                               
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>  
+              
                 @endauth
                 <!-- /.sidebar-menu -->
             </div>

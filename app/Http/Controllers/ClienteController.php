@@ -15,7 +15,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        return view('cliente.index');
     }
 
     /**
@@ -41,7 +41,7 @@ class ClienteController extends Controller
         $telefono = Afiliacion::where('telefono', '=', $request->telefono)->first();
 
         if ($cedula || $correo || $telefono) {
-            return redirect('/')->with('error', 'Sus datos ya existen en nuestra base de datos ');
+            return redirect('cliente')->with('error', 'Sus datos ya existen en nuestra base de datos ');
         }
 
         $afi = new Afiliacion();
@@ -56,7 +56,7 @@ class ClienteController extends Controller
         $afi->eps_id = $request->eps_id;
         $afi->save();
 
-        return redirect('welcome')->with('status', 'Registro exitoso');
+        return redirect('cliente')->with('status', 'Registro exitoso');
     }
 
     /**
