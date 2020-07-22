@@ -56,7 +56,7 @@ class ClienteController extends Controller
         $afi->eps_id = $request->eps_id;
         $afi->save();
 
-        return back()->with('status', 'Registro exitoso');
+        return redirect('/')->with('status', 'Registro exitoso');
     }
 
     /**
