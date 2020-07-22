@@ -15,7 +15,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('/welcome');
+        return view('/');
     }
 
     /**
@@ -41,7 +41,7 @@ class ClienteController extends Controller
         $telefono = Afiliacion::where('telefono', '=', $request->telefono)->first();
 
         if ($cedula || $correo || $telefono) {
-            return back()->with('error', 'Sus datos ya existen en nuestra base de datos ');
+            return redirect('/')->with('error', 'Sus datos ya existen en nuestra base de datos ');
         }
 
         $afi = new Afiliacion();
