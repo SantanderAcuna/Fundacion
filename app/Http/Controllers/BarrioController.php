@@ -22,9 +22,15 @@ class BarrioController extends Controller
 
     public function index()
     {
-        $barrios = Barrio::orderBy('id', 'desc')->get();
+        $barrios = $this->listarBarrios();
 
         return view('barrio.index', compact('barrios'));
+    }
+
+    public function listarBarrios()
+    {
+        $barrios = Barrio::orderBy('id', 'desc')->get();
+        return $barrios;
     }
 
     /**

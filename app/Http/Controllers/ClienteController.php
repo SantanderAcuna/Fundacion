@@ -15,7 +15,10 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('cliente.index');
+        $barrios = (new BarrioController)->listarBarrios();
+        $eps = (new EpsController)->listarEps();
+       
+        return view('cliente.index',compact('barrios', 'eps'));
     }
 
     /**

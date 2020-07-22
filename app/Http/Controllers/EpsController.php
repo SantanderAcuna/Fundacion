@@ -22,9 +22,16 @@ class EpsController extends Controller
 
     public function index()
     {
-        $eps = Eps::orderBy('id','desc')->get();
+        $eps = $this->listarEps();
 
         return view('eps.index', compact('eps'));
+    }
+
+    public function listarEps()
+    {
+        $eps = Eps::orderBy('id','desc')->get();
+
+      return $eps;
     }
 
     /**
