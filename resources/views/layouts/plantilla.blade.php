@@ -15,10 +15,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="admin/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <link rel="shortcut icon" href="admin/dist/img/fundacion.jpeg" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('admin/dist/img/fundacion.jpeg')}}" type="image/x-icon">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -60,7 +60,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item dropdown">
                     <!-- Brand Logo -->
                     <a href="#" class="brand-link">
-                        <img src="admin/dist/img/fundacion.jpeg" alt="AdminLTE Logo" class="brand-image"
+                        <img src="{{asset('admin/dist/img/fundacion.jpeg')}}" alt="AdminLTE Logo" class="brand-image"
                             style="opacity: .8">
                         <span class="brand-text font-weight-light"></span>
                     </a>
@@ -110,7 +110,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 @auth
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="admin/dist/img/Admin.png" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{asset('admin/dist/img/Admin.png')}}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         @auth
@@ -235,11 +235,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
-    <script src="admin/plugins/jquery/jquery.min.js"></script>
+    <script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap 4 -->
-    <script src="admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- AdminLTE App -->
-    <script src="admin/dist/js/adminlte.min.js"></script>
+    <script src="{{asset('admin/dist/js/adminlte.min.js')}}"></script>
 </body>
 
 </html>

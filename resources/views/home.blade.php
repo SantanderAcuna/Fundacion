@@ -1,7 +1,4 @@
-@extends('administrador.plantilla')
-
-@section('content')
-@extends('administrador.plantilla')
+@extends('layouts.plantilla')
 
 @section('content')
 <div class="container">
