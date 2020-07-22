@@ -25,8 +25,8 @@ Route::get('/usuarios', 'RegisterController@create')->name('registro');
 
 // Rutas cliente
 
-Route::get('cliente', 'ClienteController@index')->name('cliente.index');
-Route::post('cliente', 'ClienteController@store')->name('cliente.guardar');
+Route::get('/', 'ClienteController@index')->name('cliente.index');
+Route::post('/', 'ClienteController@store')->name('cliente.guardar');
 
 // Ruta administrador
 
