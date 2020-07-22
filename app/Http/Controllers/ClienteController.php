@@ -3,37 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Afiliacion;
-use App\Exports\AfiliadosExport;
 use App\Http\Requests\AfiliacionRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use App\Exports\UsersExport;
-use Maatwebsite\Excel\Facades\Excel;
 
-class AfiliacionController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-
-
-   
-
     public function index()
     {
-       return  $afi = Afiliacion::join('barrios', 'Afiliacions.id', '=', 'afiliacions.barrio_id')
-            ->join('eps', 'eps.id', '=', 'afiliacions.eps_id')
-            ->select('afiliacions.*', 'barrios.nombre as barrio', 'eps.nombre as eps')         
-
-            ->join('contacts', 'users.id', '=', 'contacts.user_id')
-            ->get();
-
-           
-
-        //return view('administrador.index', compact('afi'));
+        return view('/welcome');
     }
 
     /**
@@ -80,10 +62,10 @@ class AfiliacionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Afiliacion  $afiliacion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Afiliacion $afiliacion)
+    public function show($id)
     {
         //
     }
@@ -91,10 +73,10 @@ class AfiliacionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Afiliacion  $afiliacion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Afiliacion $afiliacion)
+    public function edit($id)
     {
         //
     }
@@ -103,10 +85,10 @@ class AfiliacionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Afiliacion  $afiliacion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Afiliacion $afiliacion)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -114,10 +96,10 @@ class AfiliacionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Afiliacion  $afiliacion
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Afiliacion $afiliacion)
+    public function destroy($id)
     {
         //
     }
