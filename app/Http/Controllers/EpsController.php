@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Eps;
 use App\Http\Requests\RequestEps;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class EpsController extends Controller
 {
@@ -84,9 +85,11 @@ class EpsController extends Controller
      * @param  \App\Eps  $eps
      * @return \Illuminate\Http\Response
      */
-    public function edit(Eps $eps)
+    public function edit($id)
     {
-        //
+            $eps = Eps::findOrFail($id);
+
+        return view('eps.edit', compact('eps') );
     }
 
     /**
@@ -96,9 +99,14 @@ class EpsController extends Controller
      * @param  \App\Eps  $eps
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Eps $eps)
+    public function update(RequestEps $request, $id)
     {
-        //
+            $eps = new Eps();
+            $eps->codigo = $request->codigo;
+            $eps->nombre = $request->nombre;
+            $eps->regimen = $request->regimen;
+            $eps->save();
+            return Redirect('eps')->with('status', 'La eps ' . $eps->nombre . ' fue Actualizada');
     }
 
     /**

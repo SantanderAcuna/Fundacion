@@ -49,6 +49,8 @@ Route::delete('/usuarios/{id}', 'UsuarioController@destroy')->name('usuarios.des
 
 Route::get('eps', 'EpsController@index')->name('eps');
 Route::post('eps', 'EpsController@store')->name('eps.store');
+Route::get('eps/{ep}/edit', 'EpsController@edit')->name('eps.edit');
+Route::put('eps/{ep}', 'EpsController@update')->name('eps.update');
 Route::delete('/eps/{id}', 'EpsController@destroy')->name('eps.destroy');
 
 // Ruta barrios

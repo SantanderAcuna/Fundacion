@@ -86,11 +86,13 @@
           <form action="{{route('eps.destroy',$item->id)}}" method="post">
             @csrf
             @method('DELETE')
-            <a href="#" type="submit" class="btn  btn-danger btn-sm">Eliminar</a>
+            
+
+            <button type="submit" class="btn  btn-danger btn-sm">Eliminar</button>
 
           </form>
 
-          <a href="#" class="ml-1 btn  btn-primary btn-sm">Editar</a>
+        <a href="{{route('eps.edit',$item->id)}}" class="ml-1 btn  btn-primary btn-sm">Editar</a>
         </small></td>
     </tr>
     @endforeach
