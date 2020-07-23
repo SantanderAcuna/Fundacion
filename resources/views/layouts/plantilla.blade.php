@@ -36,9 +36,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                   
+
                 </li>
-             
+
             </ul>
 
             <!-- SEARCH FORM -->
@@ -101,7 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
         </nav>
         <!-- /.navbar -->
-      
+
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Sidebar -->
@@ -110,7 +110,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 @auth
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{asset('admin/dist/img/Admin.png')}}" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{asset('admin/dist/img/Admin.png')}}" class="img-circle elevation-2"
+                            alt="User Image">
                     </div>
                     <div class="info">
                         @auth
@@ -124,8 +125,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
 
                 <!-- Sidebar Menu -->
-               
-             
+
+
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
@@ -135,7 +136,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="#" class="nav-link active bg-danger">
                                 <i class="fas fa-file-alt"></i>
                                 <p>
-                                    Reportes
+                                    Gestion
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -148,7 +149,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('usuarios')}}" class="nav-link active">
-                                        <i class="far fa-address-card"></i>
+                                        <i class="fas fa-clipboard-check"></i>
                                         <p>Usuarios</p>
                                     </a>
                                 </li>
@@ -160,15 +161,95 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('barrios')}}" class="nav-link active">
-                                        <i class="fas fa-briefcase-medical"></i>
+                                        <i class="fas fa-street-view"></i>
                                         <p>Barrios</p>
                                     </a>
                                 </li>
+
                             </ul>
                         </li>
                     </ul>
-                </nav>             
-                    
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+           with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link active bg-danger">
+                                <i class="fas fa-file-upload"></i>
+                                <p>
+                                    Importar
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('administrador')}}" class="nav-link active">
+                                        <i class="far fa-address-card"></i>
+                                        <p>Afiliados</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('usuarios')}}" class="nav-link active">
+                                        <i class="fas fa-clipboard-check"></i>
+                                        <p>Usuarios</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('eps')}}" class="nav-link active">
+                                        <i class="fas fa-briefcase-medical"></i>
+                                        <p>Eps</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('barrios')}}" class="nav-link active">
+                                        <i class="fas fa-street-view"></i>
+                                        <p>Barrios</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                                data-accordion="false">
+                                <!-- Add icons to the links using the .nav-icon class
+           with font-awesome or any other icon font library -->
+                                <li class="nav-item has-treeview menu-open">
+                                    <a href="#" class="nav-link active bg-danger">
+                                        <i class="fas fa-file-download"></i>
+                                        <p>
+                                            Exportar
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="{{route('administrador')}}" class="nav-link active">
+                                                <i class="far fa-address-card"></i>
+                                                <p>Afiliados</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{route('usuarios')}}" class="nav-link active">
+                                                <i class="fas fa-clipboard-check"></i>
+                                                <p>Usuarios</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{route('eps')}}" class="nav-link active">
+                                                <i class="fas fa-briefcase-medical"></i>
+                                                <p>Eps</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{route('barrios')}}" class="nav-link active">
+                                                <i class="fas fa-street-view"></i>
+                                                <p>Barrios</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                </nav>
+
                 @else
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
@@ -190,12 +271,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <p>Afiliados</p>
                                     </a>
                                 </li>
-                               
+
                             </ul>
                         </li>
                     </ul>
-                </nav>  
-              
+                </nav>
+
                 @endauth
                 <!-- /.sidebar-menu -->
             </div>
