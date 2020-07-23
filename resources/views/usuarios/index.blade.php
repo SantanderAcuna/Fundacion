@@ -84,10 +84,10 @@
             <form action="{{route('usuarios.destroy', $item->id)}}" method="post">
               @csrf
               @method('DELETE')
+             <button type="submit" class=" btn  btn-danger btn-sm">Eliminar</button>
              
-              <a href="#" type="submit" class=" btn  btn-danger btn-sm">Eliminar</a>
             </form>
-            <a href="#" class="ml-1 btn  btn-primary btn-sm">Editar</a>
+          <a href="{{route('usuarios.edit',$item->id)}}" class="ml-1 btn  btn-primary btn-sm">Editar</a>
           </small> </td>
       </tr>
       @endforeach

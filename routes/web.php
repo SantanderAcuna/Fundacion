@@ -9,9 +9,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     $barrios = (new BarrioController)->listarBarrios();
-    $eps = (new EpsController)->listarEps();     
+    $eps = (new EpsController)->listarEps();
     return view('cliente.index', compact('barrios', 'eps'));
-   
 });
 
 Auth::routes();
@@ -44,7 +43,11 @@ Route::get('administrador/export-listado', 'AdminController@export');
 // Ruta usuarios
 
 Route::get('usuarios', 'UsuarioController@index')->name('usuarios');
+Route::post('usuarios', 'UsuarioController@store')->name('usuarios.store');
+Route::get('usuarios/{usuario}/edit', 'UsuarioController@edit')->name('usuarios.edit');
+Route::put('usuarios/{usuario}', 'UsuarioController@update')->name('usuarios.update');
 Route::delete('/usuarios/{id}', 'UsuarioController@destroy')->name('usuarios.destroy');
+
 // Ruta eps
 
 Route::get('eps', 'EpsController@index')->name('eps');

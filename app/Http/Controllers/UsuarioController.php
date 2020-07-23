@@ -74,7 +74,8 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuarios = User::findOrFail($id);
+        return view('usuarios.edit', compact('usuarios'));
     }
 
     /**
@@ -86,7 +87,13 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuarios = new User();
+        $usuarios->name = $request->name;
+        $usuarios->email = $request->email;
+        $usuarios->password =  Hash::make($request->password);
+        $usuarios->save();
+
+        return redirect('usuarios')->with('Status', 'usuario ' . $usuarios->email . ' fue actualizado');
     }
 
     /**
