@@ -77,7 +77,7 @@
               </div>
             </div>
           </div>
-          {{var_dump($barrios)}}
+        
           <div class="input-group mb-3">
             <select name="barrio_id" id="barrio_id" autofocus autocomplete="name" class="form-control"
               value="{{old('barrio_id')}}">

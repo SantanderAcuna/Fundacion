@@ -19,7 +19,7 @@ class ClienteController extends Controller
         $lsEps = (new EpsController)->listarEps();
 
        $eps = $lsEps->pluck('nombre','id');
-        return view('cliente.index',compact('barrios', 'eps'));
+        return view('/welcome', compact('barrios', 'eps'));
     }
 
     /**
