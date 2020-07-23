@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container-fluid">
+<div class="container-fluid table-responsive{-sm|-md|-lg|-xl}">
 
   <p>
     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
@@ -61,7 +61,7 @@
 @include('partials.msg')
 @include('partials.validacion')
 
-<table class="table table-bordered table-hover text-center">
+<table class="table table-bordered table-hover text-center table-responsive{-sm|-md|-lg|-xl}">
   <thead>
     <tr>
 
