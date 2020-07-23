@@ -78,7 +78,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $adm = Afiliacion::findOrFail($id);
+
+        return view('administrador.edit', compact('adm'));
     }
 
     /**
@@ -90,7 +92,11 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $actualizar =  Afiliacion::findOrFail($id);
+        $actualizar->nombre = $request->nombre;
+        $actualizar->save();
+
+        return redirect('administrador')->with('status', 'Barrio actualizado de manera exitosa');
     }
 
     /**
@@ -101,6 +107,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $eliminar =  Afiliacion::findOrFail($id);
+        $eliminar->delete();
+        return redirect('administrador')->with('error', 'El afiliado ' . $eliminar->nombre . ' fue eliminado');
     }
 }

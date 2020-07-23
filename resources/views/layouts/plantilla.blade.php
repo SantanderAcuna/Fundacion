@@ -141,7 +141,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{route('admin')}}" class="nav-link active">
+                                    <a href="{{route('administrador')}}" class="nav-link active">
                                         <i class="far fa-address-card"></i>
                                         <p>Afiliados</p>
                                     </a>

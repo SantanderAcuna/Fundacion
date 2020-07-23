@@ -15,9 +15,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// Rutas cliente
+
+Route::get('cliente', 'ClienteController@index')->name('cliente');
+Route::post('cliente', 'ClienteController@store')->name('cliente.guardar');
+
 // Recursos
 
-Route::resource('administrador', 'AdminController');
 Route::resource('usuarios', 'UsuarioController');
 Route::resource('eps', 'EpsController');
 Route::resource('barrio', 'BarrioController');
@@ -28,17 +32,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/usuarios', 'RegisterController@create')->name('registro');
 
 
-// Rutas cliente
-
-
-
-Route::get('cliente', 'ClienteController@index')->name('cliente');
-Route::post('cliente', 'ClienteController@store')->name('cliente.guardar');
-
 // Ruta administrador
 
-Route::get('administrador', 'AdminController@index')->name('admin');
-Route::get('administrador/export-listado', 'AdminController@export');
+Route::get('administrador', 'AdminController@index')->name('administrador');
+Route::post('administrador', 'AdminController@store')->name('administrador.store');
+Route::get('administrador/{id}/edit', 'AdminController@edit')->name('administrador.edit');
+Route::put('administrador/{administrador}', 'AdminController@update')->name('administrador.update');
+Route::delete('/administrador/{id}', 'AdminController@destroy')->name('administrador.destroy');
+Route::get('administrador/export-listado', 'AdminController@export')->name('export');
 
 // Ruta usuarios
 

@@ -3,9 +3,10 @@
 @section('content')
 <div class="container-fluid">
 
-<a href="{{url('administrador/export-listado')}}" class="btn btn-primary btn-sm">Exportar</a>
-  
-<div class="p-1"></div>
+  <a href="{{route('export')}}" class="btn btn-primary btn-sm">Exportar</a>
+  @include('partials.msg')
+  @include('partials.validacion')
+  <div class="p-1"></div>
 
   <table class="table table-bordered table-hover text-center ">
     <thead>
@@ -32,8 +33,18 @@
         <td><small>{{$item->telefono}} </small> </td>
         <td><small>{{$item->email}} </small> </td>
         <td><small>{{$item->eps}} </small> </td>
-        <td><small><a href="#" class="btn  btn-danger btn-sm">Eliminiar</a>
-          <a href="#" class="btn  btn-primary btn-sm">Editar</a></td></small>
+        <td><small>
+            <form action="{{ route('administrador.destroy', $item->id) }}" method="post">
+              @csrf
+              @method('DELETE')
+
+              <button class="btn  btn-danger btn-sm">Eliminiar</button>
+
+            </form>
+
+          <a href="{{route('administrador.edit',$item->id)}}" class="btn  btn-primary btn-sm">Editar</a>
+
+        </td></small>
       </tr>
       @endforeach
 
