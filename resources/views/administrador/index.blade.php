@@ -33,7 +33,7 @@
         <td><small>{{$item->telefono}} </small> </td>
         <td><small>{{$item->email}} </small> </td>
         <td><small>{{$item->eps}} </small> </td>
-        <td><small>
+        <td><small class="d-inline-flex">
             <form action="{{ route('administrador.destroy', $item->id) }}" method="post">
               @csrf
               @method('DELETE')
@@ -42,7 +42,7 @@
 
             </form>
 
-          <a href="{{route('administrador.edit',$item->id)}}" class="btn  btn-primary btn-sm">Editar</a>
+          <a href="{{route('administrador.edit',$item->id)}}" class="ml-1 btn  btn-primary btn-sm">Editar</a>
 
         </td></small>
       </tr>
