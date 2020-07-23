@@ -54,7 +54,7 @@ class BarrioController extends Controller
         $barrio = new Barrio();
         $barrio->nombre = $request->nombre;
         $barrio->save();
-        return redirect('barrio')->with('status', 'El barrio ' . $barrio->nombre .' fue creado con exito');
+        return redirect('barrio')->with('status', 'El barrio ' . $barrio->nombre . ' fue creado con exito');
     }
 
     /**
@@ -90,10 +90,10 @@ class BarrioController extends Controller
     public function update(Request $request, $id)
     {
         $actualizar =  Barrio::findOrFail($id);
-        $actualizar->name = $request->name;
-        //$actualizar->save();
-        return $actualizar;
-        // return back()->with('status', 'Barrio actualizado de manera exitosa');
+        $actualizar->nombre = $request->nombre;
+        $actualizar->save();
+
+        return redirect('barrio')->with('status', 'Barrio actualizado de manera exitosa');
     }
 
     /**

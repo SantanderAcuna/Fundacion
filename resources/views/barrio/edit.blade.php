@@ -2,7 +2,8 @@
 
 @section('content')
 
-<div class="modal-body">
+<div class="modal-body row-cols-3">
+
     <form action="{{route('barrio.update', $barrio->id)}}" method="post">
         @csrf
         @method('put')
@@ -15,12 +16,13 @@
                 </div>
             </div>
         </div>
-
+       
+        <button type="submit" class="btn btn-primary">Editar</button>
+    </form>
+</div>
 </div>
 
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<button type="submit" class="btn btn-success">Crear</button>
-</form>
+
 
 
 @endsection
