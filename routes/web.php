@@ -1,11 +1,17 @@
 <?php
 
+use App\Http\Controllers\BarrioController;
+use App\Http\Controllers\EpsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $barrios = (new BarrioController)->listarBarrios();
+    $eps = (new EpsController)->listarEps();     
+    return view('cliente.index', compact('barrios', 'eps'));
+   
 });
 
 Auth::routes();
