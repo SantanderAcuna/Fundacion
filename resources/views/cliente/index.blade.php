@@ -82,7 +82,7 @@
             <select name="barrio_id" id="barrio_id" autofocus autocomplete="name" class="form-control"
               value="{{old('barrio_id')}}">
 
-              <option>Seleccionar barrio</option>
+              <option>Selecionar barrio</option>
               @foreach ($barrios as $item)
               <option value="{{$item->id}}"> {{$item->nombre}}</option>
               @endforeach
@@ -118,9 +118,9 @@
             <select name="eps_id" id="eps_id" autofocus autocomplete="name" class="form-control"
               value="{{old('eps_id')}}">
               <option>Seleccionar eps</option>
-              @foreach ($eps as $item)
+              @foreach ($eps as $key => $value)
 
-              <option value="{{$item->id}}">{{$item->nombre}}</option>
+              <option value="{{$key}}">{{$value}}</option>
 
               @endforeach
             </select>

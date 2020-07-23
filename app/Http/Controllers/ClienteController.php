@@ -16,8 +16,9 @@ class ClienteController extends Controller
     public function index()
     {
         $barrios = (new BarrioController)->listarBarrios();
-        $eps = (new EpsController)->listarEps();
-       
+        $lsEps = (new EpsController)->listarEps();
+
+       $eps = $lsEps->pluck('nombre','id');
         return view('cliente.index',compact('barrios', 'eps'));
     }
 
