@@ -12,6 +12,7 @@
     <thead>
       <tr>
 
+        <th scope="col">Tipo Doc</th>
         <th scope="col">Cedula</th>
         <th scope="col">Nombre completo</th>
         <th scope="col">Direccion</th>
@@ -25,7 +26,7 @@
     <tbody>
       @foreach ($afi as $item)
       <tr>
-
+      <td><small>{{$item->tipo}} </small> </td>
         <td><small>{{$item->cedula}} </small> </td>
         <td><small>{{$item->nombre}} {{$item->p_apellidos}} </small> </td>
         <td><small>{{$item->direccion}} </small> </td>

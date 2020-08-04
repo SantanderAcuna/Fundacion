@@ -33,6 +33,24 @@
         <form action="{{route('cliente.guardar')}}" method="post">
           @csrf
           <div class="input-group mb-3">
+            <select name="tipo" id="tipo" autofocus autocomplete="name" class="form-control"
+              value="{{old('tipo')}}">
+
+              <option>Tipo documento</option>
+              @foreach ($tipo  as $item)
+              
+              <option value="{{$item->id}}"> {{$item->nombre}}</option>
+              @endforeach
+            </select>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span><i class="fas fa-compass"></i></span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="input-group mb-3">
             <input type="number" id="cedula" name="cedula" autofocus autocomplete="cc-number" class="form-control"
               placeholder="Numero de cedula" value="{{old('cedula')}}">
             <div class="input-group-append">

@@ -15,6 +15,7 @@ class CreateAfiliacionsTable extends Migration
     {
         Schema::create('afiliacions', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('tipo_id')->unsigned();
             $table->string('cedula');
             $table->string('nombre');
             $table->string('p_apellidos');
@@ -25,6 +26,7 @@ class CreateAfiliacionsTable extends Migration
             $table->string('email');
             $table->bigInteger('eps_id')->unsigned();
             $table->foreign('barrio_id')->references('id')->on('barrios');
+            $table->foreign('tipo_id')->references('id')->on('tipos');
             $table->foreign('eps_id')->references('id')->on('eps');
             $table->timestamps();
         });

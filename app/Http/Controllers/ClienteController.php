@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Afiliacion;
 use App\Http\Requests\AfiliacionRequest;
+use App\Tipo;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -16,8 +17,9 @@ class ClienteController extends Controller
     public function index()
     {
         $barrios = (new BarrioController)->listarBarrios();
-        $eps = (new EpsController)->listarEps();     
-        return view('cliente.index', compact('barrios', 'eps'));
+        $eps = (new EpsController)->listarEps(); 
+        $tipo = (new TipoController)->consultarTipo();   
+        return view('cliente.index', compact('barrios', 'eps', 'tipo'));
     }
 
     /**
@@ -47,6 +49,7 @@ class ClienteController extends Controller
         }
 
         $afi = new Afiliacion();
+        $afi->tipo_id = $request->tipo;
         $afi->cedula = $request->cedula;
         $afi->nombre = $request->nombre;
         $afi->p_apellidos = $request->p_apellidos;

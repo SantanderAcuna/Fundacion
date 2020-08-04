@@ -20,6 +20,13 @@ class CreateEpsTable extends Migration
             $table->string('regimen');
             $table->timestamps();
         });
+
+
+        Schema::create('tipos', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre');
+            $table->timestamps();
+        });
     }
 
     /**

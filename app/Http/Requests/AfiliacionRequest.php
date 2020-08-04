@@ -24,7 +24,8 @@ class AfiliacionRequest extends FormRequest
     public function rules()
     {
         return [
-            'cedula' => 'required|min:5',
+            'cedula' => 'required|min:5|max:15',
+            'tipo' => 'required',
             'nombre' => 'required',
             'p_apellidos' => 'required',
             's_apellidos' => 'required',

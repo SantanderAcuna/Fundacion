@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BarrioController;
 use App\Http\Controllers\EpsController;
+use App\Http\Controllers\TipoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -10,7 +11,8 @@ Route::get('/', function () {
 
     $barrios = (new BarrioController)->listarBarrios();
     $eps = (new EpsController)->listarEps();
-    return view('cliente.index', compact('barrios', 'eps'));
+    $tipo = (new TipoController)->consultarTipo();
+    return view('cliente.index', compact('barrios', 'eps', 'tipo'));
 });
 
 Auth::routes();
@@ -63,3 +65,12 @@ Route::post('barrio', 'BarrioController@store')->name('barrio.store');
 Route::get('barrio/{barrio}/edit', 'BarrioController@edit')->name('barrio.edit');
 Route::put('barrio/{barrio}', 'BarrioController@update')->name('barrio.update');
 Route::delete('/barrio/{id}', 'BarrioController@destroy')->name('barrio.destroy');
+
+// Ruta tipo
+
+Route::get('tipo', 'TipoController@index')->name('tipo');
+Route::post('tipo', 'TipoController@store')->name('tipo.store');
+Route::get('tipo/{tipo}/edit', 'TipoController@edit')->name('tipo.edit');
+Route::put('tipo/{tipo}', 'TipoController@update')->name('tipo.update');
+Route::delete('/tipo/{id}', 'TipoController@destroy')->name('tipo.destroy');
+

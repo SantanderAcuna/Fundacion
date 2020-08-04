@@ -2,41 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Afiliacion;
-use App\Exports\AfiliacionExport;
-
+use App\Http\Requests\RequestTipo;
+use App\Tipo;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
 
-class AdminController extends Controller
+class TipoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function export(){
 
-        return Excel::download(new AfiliacionExport, 'Afliados.xlsx');
-    }
-    
+
 
 
     public function index()
     {
-        $afi = Afiliacion::join('barrios', 'barrios.id', '=', 'afiliacions.barrio_id')
-            ->join('eps', 'eps.id', '=', 'afiliacions.eps_id')
-            ->join('tipos', 'tipos.id', '=', 'afiliacions.tipo_id')
-            ->select('afiliacions.*', 'barrios.nombre as barrio', 'eps.nombre as eps', 'tipos.nombre as tipo')
-            ->get();
+        $tipo = $this->consultarTipo();
 
-       return view('administrador.index', compact('afi'));
+        return view('tipo.index', compact('tipo'));
+    }
+
+    public function consultarTipo()
+    {
+
+        $tipo = Tipo::all();
+
+        return $tipo;
     }
 
     /**
@@ -57,61 +55,67 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $doc = Tipo::where('nombre', '=', $request->nombre)->first();
+        if ($doc) {
+            return redirect('tipo')->with('error', 'Tipo de documento ya existe');
+        } else {
+
+            $tipo = new Tipo();
+            $tipo->nombre = $request->nombre;
+            $tipo->save();
+            return redirect('tipo')->with('status', 'Tipo de documento creado');
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Tipo  $tipo
      * @return \Illuminate\Http\Response
      */
-    
-
-    public function doc()
+    public function show(Tipo $tipo)
     {
-        return view('documento.index');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Tipo  $tipo
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $adm = Afiliacion::findOrFail($id);
+        $tipo = Tipo::findOrFail($id);
 
-        return view('administrador.edit', compact('adm'));
+        return view('tipo.edit', compact('tipo'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Tipo  $tipo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $actualizar =  Afiliacion::findOrFail($id);
-        $actualizar->nombre = $request->nombre;
-        $actualizar->save();
-
-        return redirect('administrador')->with('status', 'Barrio actualizado de manera exitosa');
+        $tipo = new Tipo();
+        $tipo->nombre = $request->nombre;
+        $tipo->save();
+        return redirect('tipo')->with('status', 'Tipo de documento editado');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Tipo  $tipo
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $eliminar =  Afiliacion::findOrFail($id);
-        $eliminar->delete();
-        return redirect('administrador')->with('error', 'El afiliado ' . $eliminar->nombre . ' fue eliminado');
+        $tipo = Tipo::findOrFail($id);
+        $tipo->delete();
+        return redirect('tipo')->with('error', 'Tipo de documento eliminado');
     }
 }
