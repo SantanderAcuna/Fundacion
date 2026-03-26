@@ -1,1 +1,1 @@
-Este es un proyecto de consulta de BD de la alcaldía de fundación, otro cambio, new trail 
+Este es un proyecto de consulta de BD de la alcaldía de fundación, otro cambio, new trail.
